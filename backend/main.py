@@ -5,6 +5,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from google import genai
+from fastapi.responses import Response
 import os
 
 load_dotenv()
@@ -37,6 +38,7 @@ print(f"Knowledge base loaded: {len(KNOWLEDGE)} characters")
 # Serve frontend files
 FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "..", "frontend")
 app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
+
 
 @app.get("/")
 def root():
