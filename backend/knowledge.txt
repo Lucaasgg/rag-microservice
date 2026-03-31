@@ -1,0 +1,3267 @@
+SUBJECT: Computing Infrastructure
+UNIVERSITY: University of Oviedo - Computer Science Department
+ACADEMIC YEAR: 3rd year
+UNITS COVERED: Unit 1 (Introduction), Unit 2 (Virtualization), Unit 3 (Storage Technologies), Unit 4 (Storage Systems and Networks)
+
+This document contains the lecture notes for the Computing Infrastructure subject.
+================================================================
+
+============================================================
+UNIT: unit1.pdf
+============================================================
+
+--- Page 1 ---
+Unit 1
+Introduction to Computing Infrastructure
+
+--- Page 2 ---
+University of Oviedo
+Computer Science Department
+IT services used in organizations
+Computing Infrastructure
+2
+• Connectivity to workstations
+• Management of workstations
+• Connectivity of mobile devices
+• Institutional communication
+• Personal communication inside the organization
+TCP / IP configuration, DNS
+Incident management portal / Remote management incident portal / Software 
+installation service
+WiFi Uniovi
+Corporative portal, electronic newsletter (DUO)
+Mail
+
+--- Page 3 ---
+University of Oviedo
+Computer Science Department
+IT services used in organizations
+Computing Infrastructure
+3
+• Security
+• Collaborative work
+• Storage
+• Corporate applications
+Corporative identity service
+Office 365
+OneDrive
+Virtual Campus / SIES
+
+--- Page 4 ---
+University of Oviedo
+Computer Science Department
+The IT infrastructure of an organization
+Computing Infrastructure
+4
+The information technology infrastructure of an organization is formed by the following elements:
+• Network infrastructure. Interconnect all the devices in the organization and connects them to the
+Internet
+• Workstations. Computers or other electronic devices used by the employees of the company to do
+their tasks.
+• Peripherals. There are different types, such as printers, scanners, webcams, …
+• Servers. They provide processing and storage capacity to support the organization's IT services.
+Intenet
+Network infrastructure
+Servers
+Workstations
+Peripherals
+
+--- Page 5 ---
+University of Oviedo
+Computer Science Department
+Approach of the course
+Computing Infrastructure
+5
+Intenet
+Network Infrastructure
+Servers 
+(Storage 
+Virtualization 
+Virtual Networks)
+Workstations
+(Management)
+Peripherals
+Thematic area of 
+Computing 
+Infrastructure 
+(Lab Sessions)
+Thematic area of 
+Computing 
+Infrastructure 
+(Theory and Lab 
+Sessions)
+Thematic area of 
+Network 
+engineering
+Data Centers
+
+
+
+============================================================
+UNIT: unit2.pdf
+============================================================
+
+--- Page 1 ---
+Unit 2
+Virtualization technologies
+
+--- Page 2 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Index
+Computing Infrastructure
+2
+• Virtualization concept
+• Virtualization types
+– Resource virtualization
+– Platform virtualization
+– Operating system virtualization
+– Application virtualization
+• Virtual infrastructure
+
+--- Page 3 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Layered structure of a computer system
+Computing Infrastructure
+3
+- In general, a computer system can be considered to be organized in three layers: the physical platform, the 
+operating system and the applications.
+- Each layer provides resources to its upper layer. The physical platform (hardware), physical resources, and the 
+operating system, logical resources.
+Application
+Physical platform
+PR1
+PR2
+PRn
+Operating System
+LR1
+LR2
+LRn
+
+--- Page 4 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+What is virtualization?
+Computing Infrastructure
+4
+To virtualize is to modify the view of resources that one layer of a computer system provides to its upper layer, 
+through the use of an additional layer of software, known as a virtualization layer.
+Virtualization layer
+Physical platform
+PR1
+PR2
+PRn
+VR1
+VR2
+VRm
+Operating System
+LR1
+LR2
+LRn
+LR1'
+LR2'
+LRm 
+Modified view
+of resources
+Application
+Virtualization layer
+Modified view
+of resources
+
+--- Page 5 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Index
+Computing Infrastructure
+5
+• Virtualization concept
+• Virtualization types
+– Resource virtualization
+– Platform virtualization
+– Operating system virtualization
+– Application virtualization
+• Virtual infrastructure
+
+--- Page 6 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Purpose and operating scheme
+Computing Infrastructure
+6
+• Purpose
+• Operating scheme
+To provide the operating system or applications running on it with a modified view of a resource or a 
+grouping of resources.
+Operating system
+Physical platform
+Modified view of 
+the
+physical resource
+Physical 
+resource
+Virtualized 
+resource
+PR
+VR
+Virtualization layer
+Physical platform
+Physical 
+resource
+PR
+Operating system
+Virtualization layer
+Virtualized 
+resource
+VR
+Program 
+(application)
+Program 
+(application)
+
+--- Page 7 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Example in the storage field
+Computing Infrastructure
+7
+• Disk virtualization using RAID
+- Purpose of disk virtualization: manage physical disks in clusters, which are presented to the operating 
+system as virtual disks, with improved properties compared to physical disks.
+- Location of the virtualization layer: In the RAID controller firmware
+Operating system
+Physical platform
+Modified view of disk 
+resources
+Physical disks
+RAID controller
+Firmware
+(Virtualization layer)
+Virtual disk
+
+--- Page 8 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Example in the memory field
+Computing Infrastructure
+8
+• Virtual memory
+- Purpose of memory virtualization: In a multitasking system, it allows to present each program in the 
+system with a private memory for it, and with a modified size with respect to the physical memory of the 
+system, usually much larger than the physical memory.
+- Location of the virtualization layer: In the memory management subsystem of the operating system.
+Modified view of memory 
+resources
+Program 1
+Program N
+Memory 
+management 
+subsystem
+OS
+Physical 
+memory
+Disk
+Virtualization 
+layer
+
+--- Page 9 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Index
+Computing Infrastructure
+9
+• Virtualization concept
+• Virtualization types
+– Resource virtualization
+– Platform virtualization
+– Operating system virtualization
+– Application virtualization
+• Virtual infrastructure
+
+--- Page 10 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Purpose and operating scheme
+Computing Infrastructure
+10
+• Purpose
+• Operating scheme
+Provide a mechanism for generating virtual execution platforms from a hardware platform. Virtual 
+platforms receive a completely modified view of the physical resources of the hardware platform, and 
+multiple virtual platforms can share the same hardware platform.
+Virtualization layer
+Physical platform
+PR1
+PR2
+PRn
+VR1
+VR2
+VRm
+Modified view of 
+resources
+Virtual platform 1
+VR1
+VR2
+VRm
+Virtual platform 2
+Guest OS 1
+Guest OS 2
+Virtualization layer
+Linux system
+Virtualization layer
+Host OS
+Different locations of 
+the
+virtualization layer
+
+--- Page 11 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Device drivers on physical platform and virtual platform
+Computing Infrastructure
+11
+In the OS installation process, device drivers are chosen appropriately to match the devices of the 
+computing platform, whether physical or virtual. In this way, by selecting the appropriate drivers, an 
+operating system can be easily adapted to a virtual platform, without the need to modify the main system 
+code.
+Virtualization layer (hypervisor)
+Physical platform
+PR1
+PR2
+PRn
+Device 
+drivers
+VR1
+VR2
+VRm
+Virtual platform
+Physical platform
+PR1
+PR2
+PRn
+Operating system
+DD1
+DD2
+DDn
+Guest OS
+DD1'
+DD2'
+DDm 
+Device 
+drivers
+
+--- Page 12 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Index
+Computing Infrastructure
+12
+• Virtualization concept
+• Virtualization types
+– Resource virtualization
+– Platform virtualization
+✓Motivation
+✓Types
+✓Implementation technologies
+– Operating system virtualization
+– Application virtualization
+• Virtual infrastructure
+
+--- Page 13 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Traditional computing platform
+Computing Infrastructure
+13
+Physical platform
+Operating system
+Application
+Server
+
+--- Page 14 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Problems of traditional computing platforms
+Computing Infrastructure
+14
+• Server proliferation trend
+• Consequences of server proliferation
+– Low utilization of hardware resources
+– Cost increase
+✓Acquisition
+✓Management and maintenance
+✓Energy consumption
+The CPU and memory of servers are often underutilized.
+To avoid interference between applications, there is a tendency to install one application per server, which 
+leads to a rapid increase in the number of servers installed. 
+More servers -> more money in the purchase
+More servers -> more management and maintenance personnel.
+More servers -> higher consumption.
+
+--- Page 15 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Motivation, advantages and benefits of platform virtualization
+Computing Infrastructure
+15
+• Motivation
+• Main advantage
+• Main benefit
+• Server consolidation concept
+Overcoming the problems posed by traditional computing platforms.
+A single physical server can support multiple virtual servers.
+Reduction in the number of servers required to support the organizations' IT services.
+Projects undertaken in the IT industry to transform physical servers into virtual ones, drastically reducing 
+the number of physical servers required to support the IT services of companies and organizations.
+
+--- Page 16 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Index
+Computing Infrastructure
+16
+• Virtualization concept
+• Virtualization types
+– Resource virtualization
+– Platform virtualization
+✓Motivation
+✓Types
+✓Implementation technologies
+– Operating system virtualization
+– Application virtualization
+• Virtual infrastructure
+
+--- Page 17 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Hypervisor type 1 (native or bare metal hypervisor)
+Computing Infrastructure
+17
+• Concept
+• Software requirements
+• Models
+– With microkernel architecture
+✓Examples
+✓Design
+✓VM management
+It is a very lightweight OS kernel, whose purpose is to create an execution environment for the VMs, as 
+well as to provide them with coordinated access to the hardware resources of the physical platform.
+None, it runs directly on the hardware (bare metal).
+The kernel is minimal in size (1MB in the case of Xen) and manages the processor, memory and 
+interrupts. IO management is delegated to a privileged VM.
+Xen and Hyper-V
+This is done by means of a management tool installed in the privileged VM.
+
+--- Page 18 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Hypervisor type 1 (native or bare metal hypervisor)
+Computing Infrastructure
+18
+– With monolitic kernel architecture
+✓Example
+✓Design
+✓VM management
+• Most relevant área of use
+The kernel is small (32 MB in the ESXi case), but much larger in size than microkernel hypervisors. The 
+kernel manages the processor, memory, interrupts and IO.
+VMWare ESXi
+This is done by means of an administrative tool installed on an external computer that connects via 
+network to the physical platform supporting the hypervisor.  A process running on the hypervisor 
+manages the connection.
+Server virtualization.
+
+--- Page 19 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Hypervisor type 1 – microkernel architecture
+Computing Infrastructure
+19
+Hypervisor type 1
+VM application
+VM application
+Server
+Physical platform
+CPU
+MEM
+IO
+VM application
+Guest OS 2
+Guest OS N
+Guest OS 1
+Rear driver
+Native driver
+Front driver
+Front driver
+Management 
+tool
+Privileged VM
+Virtualization environment 
+management graphical 
+interface
+Virtual platform N
+Virtual platform 2
+Virtual platform 1
+IOV
+IOV
+IOV
+Front driver
+
+--- Page 20 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Hypervisor type 1 – monolitic kernel  architecture
+Computing Infrastructure
+20
+Hypervisor type 1
+VM application
+VM application
+Server
+Physical platform
+CPU
+MEM
+IO
+VM application
+Guest OS 2
+Guest OS N
+Guest OS 1
+Guest OS Driver
+Virtualization environment 
+management graphical 
+interface
+Virtual platform N
+Virtual platform 2
+Virtual platform 1
+IOV
+IOV
+IOV
+Guest OS Driver
+Guest OS Driver
+Native drivers
+IO stack
+Network 
+connection
+BP
+
+--- Page 21 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Hypervisor type 2 (hosted hypervisor)
+Computing Infrastructure
+21
+• Concept
+• Software requirements
+• IO management
+• VM management
+• Examples
+• Scope of use
+It is a virtualization application that is installed on top of a general purpose operating system and whose 
+objective is to create an execution environment for the VMs, as well as to provide them with coordinated 
+access to the hardware resources of the physical platform.
+The supporting operating system, which is called the host.
+The virtualization application has an integrated administrative tool for the management of VMs.
+Virtual Box, VMWare Workstation, VMWare Player.
+The host operating system provides the necessary support for IoT management.
+Virtualization on the user's computer.
+
+--- Page 22 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Hypervisor type 2 (hosted hypervisor)
+Computing Infrastructure
+22
+Physical platform
+Host Operating System
+Hypervisor type 2
+Guest OS 1
+VM application
+Virtual platform 1
+Guest OS 2
+VM application
+Virtual platform 2
+Other 
+applications
+Management 
+tool
+Workstation
+Virtualization environment 
+management graphical 
+interface
+
+--- Page 23 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Kernel-level virtualization
+Computing Infrastructure
+23
+• Concept
+• Software requirements
+• IO management
+• VM management
+• Examples
+• Scope of use
+This involves integrating a virtualization module into the Linux operating system kernel to create an 
+execution environment for VMs and to provide them with coordinated access to the hardware resources of 
+the physical platform.
+The Linux system provides the necessary support for IoT management.
+It uses an application that runs on top of the host Linux operating system.
+The Linux system in which it is integrated.
+KVM (Kernel-based Virtual Machine)
+Server virtualization
+
+--- Page 24 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Kernel-level virtualization
+Computing Infrastructure
+24
+Physical platform
+Guest OS 1
+VM application
+Virtual platform 1
+Guest OS 2
+VM application
+Virtual platform 2
+Management 
+tool 
+(application)
+Linux 
+Virtualization module
+Other 
+applications
+Server
+Virtualization environment 
+management graphical 
+interface
+
+--- Page 25 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Index
+Computing Infrastructure
+25
+• Virtualization concept
+• Virtualization types
+– Resource virtualization
+– Platform virtualization
+✓Motivation
+✓Types
+✓Implementation technologies
+– Operating system virtualization
+– Application virtualization
+• Virtual infrastructure
+
+--- Page 26 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Full virtualization
+Computing Infrastructure
+26
+• Concept
+• Types, according to the supervisory code execution mechanisms
+– Binary translation
+– Hardware-assisted
+✓Hardware extensions that support hardware-assisted virtualization
+Guest operating systems run on VMs without any modification (except for drivers) compared to operating 
+systems running on physical platforms.
+The supervisory mode code of the operating system is transformed by a translator just before execution, 
+so that privileged and IO instructions can be treated appropriately.
+The CPU has a special mode for hypervisor execution.  Privileged and IO instructions executed by a guest 
+operating system generate exceptions that cause control transfers to the hypervisor, which handles them 
+appropriately. 
+Intel VT-x y AMD-V
+
+--- Page 27 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Paravirtualization
+Computing Infrastructure
+27
+This involves modifying the guest operating systems so that they cooperate with the hypervisor for proper 
+execution on the VMs.
+• Concept
+• Mechanism of supervisory mode code execution
+• What are the advantages of paravirtualization over hardware-assisted virtualization?
+• Scope of use of paravirtualization
+• Combined use of hardware-assisted virtualization and paravirtualization
+Sections of guest OS code that require executing privileged instructions or performing IO operations are 
+replaced by calls to the hypervisor, which handles them appropriately.
+Paravirtualization is widely used in the implementation of device drivers. Both Windows and Linux provide 
+paravirtualized versions of device drivers for execution on the most common hypervisors.
+Most commonly, both technologies are used in combination. Hardware-assisted virtualization for memory 
+management and for handling privileged instructions, and paravirtualization in the implementation of 
+device drivers.
+Paravirtualization offers significantly superior performance in handling IoT devices. Therefore, it is the right 
+technology for device driver implementation.
+
+--- Page 28 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Index
+Computing Infrastructure
+28
+• Virtualization concept
+• Virtualization types
+– Resource virtualization
+– Platform virtualization
+– Operating system virtualization
+– Application virtualization
+• Virtual infrastructure
+
+--- Page 29 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Purpose and operating scheme
+Computing Infrastructure
+29
+• Purpose
+• Operating scheme
+To provide a mechanism for generating application execution isolation environments on top of a base 
+operating system. Each isolation environment, commonly referred to as a container, provides applications 
+running in it with a modified view of the logical resources of the underlying operating system. It thus 
+manages its own file system, and handles private process management and network environments.
+Physical platform
+PR1
+PR2
+PRn
+Operating system
+LR1
+LR2
+LRn
+Virtualization layer
+LR1'
+LR2'
+LRm'
+Modified view
+of resources
+Container 1
+LR1'
+LR2'
+LRm'
+Container 2
+Application
+Application
+
+--- Page 30 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Docker: main concepts
+Computing Infrastructure
+30
+• What is Docker?
+• Docker image
+• Docker Engine
+• Docker container
+• Docker register
+• Benefits
+It is a standardized technology for the creation and management of container images.
+Software package configured so that it can be run as a container on a Docker host.
+Docker container runtime environment.(NOTE: A computer equipped with Docker Engine becomes a 
+Docker host).
+Docker image running on Docker Engine.
+1)
+Lightweight, highly efficient mechanisms for the execution of multiple isolated workloads on a single 
+system.
+2)
+2) Standardized mechanism for application distribution, eliminating dependencies between 
+applications and the platforms on which they run.  
+Centralized repository for storage and distribution of Docker images.
+https://www.docker.com/resources/what-container/
+
+--- Page 31 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Docker: architecture
+Computing Infrastructure
+31
+Docker Engine
+(Client + Deamon)
+Local storage 
+of docker 
+images
+
+--- Page 32 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Comparison between platform virtualization and operating 
+system virtualization
+Computing Infrastructure
+32
+• Advantages of platform virtualization
+– Maximum flexibility in the selection of the operating systems to be run
+– Maximum flexibility in the configuration of virtual machines
+• Advantages of operating system virtualization
+– Lower resource consumption (disk and memory)
+– Better performance
+Allows the simultaneous execution of virtual machines containing any type of operating system. In other 
+words, different operating systems can run simultaneously on the same physical machine.
+The ability of virtualization platforms to emulate virtual hardware provides total flexibility in choosing the 
+configuration of each virtual machine to be run. 
+Containers do not need to maintain their own OS image. They all share a single OS image, which is 
+maintained on disk and in memory. However, each virtual machine requires its own OS, which consumes 
+the corresponding space, both on disk and in memory. 
+Containers do not require managing a complete OS, as they all share a common OS image. This simplifies 
+the management of hardware structures for OS management, thus achieving a more efficient 
+management of the hardware platform.
+
+--- Page 33 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Index
+Computing Infrastructure
+33
+• Virtualization concept
+• Virtualization types
+– Resource virtualization
+– Platform virtualization
+– Operating system virtualization
+– Application virtualization
+• Virtual infrastructure
+
+--- Page 34 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Purpose and operating scheme
+Computing Infrastructure
+34
+• Purpose
+• Operating scheme
+• Examples
+Provide a mechanism to generate isolated configuration and storage environments for applications, in 
+which all the components necessary for an application to run (runtime environments, libraries, etc.) are 
+stored together, and which minimize modifications to the configuration and file system of the underlying 
+operating system. 
+Microsoft App-V in Windows, and Snap in Linux.
+Physical platform
+PR1
+PR2
+PRn
+Operating system
+LR1
+LR2
+LRn
+LR1'
+LR2'
+LRm'
+Modified view
+of resources
+Application
+Virtualization layer
+Application
+
+--- Page 35 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Index
+Computing Infrastructure
+35
+• Virtualization concept
+• Virtualization types
+– Resource virtualization
+– Platform virtualization
+– Operating system virtualization
+– Application virtualization
+• Virtual infrastructure
+
+--- Page 36 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Virtual infrastructure
+Computing Infrastructure
+36
+It is about extending the concept of virtualization beyond the physical machine, applying it to a set or bank of 
+interconnected resources, integrating storage, servers and networks. These resources work collaboratively, 
+providing VMs with a unified view of the underlying hardware resources, commonly referred to as virtual 
+infrastructure.
+• Concept
+• Use
+Modern data centers, such as those managed by large cloud providers, are managed according to the virtual 
+infrastructure paradigm.
+
+
+
+============================================================
+UNIT: unit3.pdf
+============================================================
+
+--- Page 1 ---
+Unit 3
+Storage technologies
+
+--- Page 2 ---
+University of Oviedo
+Computing Science Department
+Table of contents
+Computing Infrastructure
+2
+• Introduction
+• Storage organization in the computer
+• Connection hierarchy of modern computers
+• I/O Buses
+ATA (Advanced Technology Attachment)
+SCSI (Small Computer System Interface)
+SATA (Serial ATA)
+SAS (Serial Attached SCSI)
+• NVMe
+• Hard Drive Disk (HDD) and Solid State Drive (SSD)
+• RAID
+
+--- Page 3 ---
+University of Oviedo
+Computing Science Department
+Permanent storage
+Computing Infrastructure
+3
+• Concept
+• Permanent storage devices and technologies
+Hard Drive Disk  (HDD)
+Solid State Drive (SSD)
+This is the ability of computer systems to store information for an indefinite 
+period of time, whether or not they are connected to their usual power supply.
+Magnetic
+Flash memory based
+
+--- Page 4 ---
+University of Oviedo
+Computing Science Department
+Storage in a desktop computer
+Computing Infrastructure
+4
+• Basic feature
+Dispositivo SSD  
+Sistema de 
+almacenamiento
+Storage system
+SSD device
+Simplicity: the storage system usually consists of a hard disk and an optical drive.
+
+--- Page 5 ---
+University of Oviedo
+Computing Science Department
+Server storage
+Computing Infrastructure
+5
+• Requirements
+• Design for compliance with requirements
+Múltiples discos de diversos tipos
+Sistema de
+almacenamiento
+SSD
+SSD
+HDD
+HDD
+Storage system
+Multiple disk of different types
+- High storage capacity
+- High performance: low access time and high transfer rate
+- Fault tolerance and high availability
+Based on multiple disks, usually managed by RAID controllers
+
+--- Page 6 ---
+University of Oviedo
+Computing Science Department
+Computing Infrastructure
+6
+ 
+ 
+ 
+Storage organization in a computer
+
+--- Page 7 ---
+University of Oviedo
+Computing Science Department
+Review: Devices interconnection in the computer
+Computing Infrastructure
+7
+
+--- Page 8 ---
+University of Oviedo
+Computing Science Department
+Connection hierarchy of a modern computer
+Computing Infrastructure
+8
+
+--- Page 9 ---
+University of Oviedo
+Computing Science Department
+Elements of the connection hierarchy of a modern computer
+Computing Infrastructure
+9
+• System Bus
+• Concentrator subsystem (chipset)
+• Motherboard bus
+Its purpose is to connect the computer's CPUs and RAM. It is a bus specially
+optimized to provide high bandwidth communication between these devices.
+Its purpose is to establish a communication path between the devices connected to
+the system bus (CPU and memory) and the rest of the computer devices.
+Its purpose is to provide a mechanism for integrating interfaces into the computer
+through the mechanism of expansion slots. I/O bus controllers can be connected to
+this bus.
+
+--- Page 10 ---
+University of Oviedo
+Computing Science Department
+Elements of the connection hierarchy of a modern computer
+Computing Infrastructure
+10
+• Bus controllers
+• I/O Bus
+The purpose of these buses is to provide a mechanism for connecting peripherals 
+to the computer.
+The purpose of these devices is to control I/O buses. To do so, they manage the
+addressing of devices on the bus and provide a communication bridge between the
+bus and other devices in the computer's interconnection system.
+
+--- Page 11 ---
+University of Oviedo
+Computing Science Department
+Alternative implementations of bus controllers
+Computing Infrastructure
+11
+The controller electronics are integrated on 
+the motherboard. The motherboard must 
+provide a connector to connect the cable 
+that will act as the I/O bus
+The controller electronics are implemented via an HBA (Host 
+Bus Adapter), which is integrated into the motherboard via an 
+expansion slot belonging to a motherboard bus. The HBA 
+provides a connector for connecting the cable that will act as 
+the I/O bus.
+
+--- Page 12 ---
+University of Oviedo
+Computing Science Department
+I/O Buses
+Computing Infrastructure
+12
+• The benefits of standardisation
+• Standards definition and maintenance
+• Features defined in a bus standard
+– Physical features
+– Logic Architecture
+– Programming interface
+Enable integration between peripherals and computers from multiple manufacturers.
+Standards are managed either by consortia of industry manufacturers or by 
+committees belonging to standardisation institutes, such as INCITS.
+Defines aspects such as cable and connector formats, electrical specifications, 
+operating frequency, etc.
+It essentially defines the lines that make up the bus, as well as their functionality.
+Defines the set of commands available for bus handling.
+
+--- Page 13 ---
+University of Oviedo
+Computing Science Department
+I/O Buses
+Computing Infrastructure
+13
+• General purpose I/O buses
+– USB (Universal Serial Bus)
+Purpose
+Most important features
+• I/O Buses oriented to storage
+– ATA (Advanced Technology Attachment)
+– SCSI (Small Computer System Interface)
+– SATA (Serial ATA)
+– SAS (Serial Attached SCSI)
+-Plug & Play.
+-Capacity to feed the connected devices.
+To provide a simple mechanism for connecting external peripherals to a computer
+
+--- Page 14 ---
+University of Oviedo
+Computing Science Department
+ATA: General aspects
+Computing Infrastructure
+14
+• Architecture
+• Scope of use
+• Standard evolution
+• Performance
+-16 width parallel bus
+-Addressing capacity of a controller: two storage devices
+Personal Computers
+7 evolutions, from ATA-1 to ATA-7
+133.3MB/s on ATA-7
+
+--- Page 15 ---
+University of Oviedo
+Computing Science Department
+SCSI: General aspects
+Computing Infrastructure
+15
+• Architecture
+• Scope of use
+• Standard evolution
+• Performance
+-Parallel bus designed with two types of width: 8 or 16
+-Addressing capacity: 8 devices on the 8-bus, and 16 on the 16-bus
+Servers and external storage systems (e.g. tape drives)
+9 evolutions, from SCSI-1 to Ultra-320 SCSI
+320MB/s on Ultra-320 SCSI
+
+--- Page 16 ---
+University of Oviedo
+Computing Science Department
+The change to serial bus
+Computing Infrastructure
+16
+• Performance 
+– Relevant factors in bus performance : Width and frequency
+– Comparison between parallel bus and serial bus
+Width: Parallel bus is advantaged
+Frequency: Parallel bus is disadvantaged
+Result (Width + Frequency): The serial bus is better
+• Used space (footprint) by the bus elements
+– Result (Used space): The serial bus is better
+-There are a number of electronic design problems in parallel buses that limit
+their operating frequency, which is aggravated as the bus length increases.
+-The length required for an I/O bus is significant.
+The serial wires are narrower and take up less space. Also, because they have far 
+fewer conductors, their connectors will have far fewer pins, making them smaller.
+
+--- Page 17 ---
+University of Oviedo
+Computing Science Department
+Devices interconnection using the serial bus
+Computing Infrastructure
+17
+• Concept of port
+• Connection model
+– Point to point
+– Using a concentrator
+One port, one device
+Several devices are connected to the same port using a concentrator
+Connection point provided by a bus 
+controller for connecting a serial link
+
+--- Page 18 ---
+University of Oviedo
+Computing Science Department
+Multiport controllers
+Computing Infrastructure
+18
+Its purpose is to provide a mechanism to connect multiple storage devices to the 
+computer, using point-to-point connections.
+
+--- Page 19 ---
+University of Oviedo
+Computing Science Department
+SATA: General aspects
+Computing Infrastructure
+19
+• Nomenclature
+• Compatibility with the standard ATA
+• Architecture
+– Communication channel
+– Bus controller
+– Addressing capacity
+• Scope of use
+SATA means Serial ATA
+-100% on the programming interface
+-Not physically compatible (wires and connectors)
+Bidirectional serial (2 transmission channels)
+Usually multi-port
+Each port can address up to 15 devices, using one hub. Typically, a port will connect to a single device.
+- Personal Computers
+- Low-end servers
+- Connection of optical devices in all types of equipment
+
+--- Page 20 ---
+University of Oviedo
+Computing Science Department
+SATA: Standard
+Computing Infrastructure
+20
+• SATA standard evolution
+• Bandwidth calculation (SATA 1.5 Gbit/s)
+• Comparison betweem ATA and SATA
+– ATA-7: 133 MB/s
+– SATA 6 Gbit/s: 600 MB/s
+Version
+Commercial name
+Frequency
+(GHz)
+Bandwidth
+(MB/s)
+1.0
+SATA 1.5 Gbit/s
+1,5
+150
+2.0
+SATA 3 Gbit/s
+3
+300
+3.0
+SATA 6 Gbit/s
+6
+600
+Bytes are encoded with 10 bits with the purpose of including synchronisation information
+s
+MB
+s
+bytes
+bits
+byte
+ciclo
+bit
+s
+ciclos
+AB
+150
+10
+150
+10
+1
+1
+10
+5,1
+)
+0.1(
+6
+9
+=
+×
+=
+×
+×
+×
+=
+
+--- Page 21 ---
+University of Oviedo
+Computing Science Department
+SATA: Physical implementation
+Computing Infrastructure
+21
+• Controller
+• Serial link
+- SATA wire
+• Connectors
+– Motherboard connectors
+– Disk connectors
+It is deployed in the motherboard as a standard element. It is part of the chipset.
+It is deployed using a wire with 7 conductors: 4 of them used for the two 
+transmission channels and 3 grounds for the security connections.
+The SATA wire has smaller size than the ATA wire.
+
+--- Page 22 ---
+University of Oviedo
+Computing Science Department
+SATA: Physical implementation
+Computing Infrastructure
+22
+SATA Wire
+Connectors
+Motherboards connectors
+Disk connectors
+Data connector
+Feed connector
+
+--- Page 23 ---
+University of Oviedo
+Computing Science Department
+SAS: General aspects
+Computing Infrastructure
+23
+• SAS: Serial Attached SCSI
+• Compatibility with SCSI standard
+– 100% in the programming interface
+– It is not compatible at physical levels (wires and connectors)
+• Scope of use
+-Mid-range and high-end servers
+-Disk storage systems
+
+--- Page 24 ---
+University of Oviedo
+Computing Science Department
+SAS: Architecture (I)
+Computing Infrastructure
+24
+• Communication channel
+• Expanded port concept
+– Narrow Port
+– Wide port
+• SAS devices interconnection
+– Point to point
+– Using a concentrator
+-SAS concentrators are knows as ‘expanders’.
+-Up to two levels of expanders can be interconnected.
+Dispositivo
+SAS
+Dispositivo
+SAS
+Dispositivo
+SAS
+Dispositivo
+SAS
+Puertos estrechos
+Puertos anchos x4
+Bidirectional serial, identical to SATA channel
+In SAS, serial channels can work alone or in aggregation. A port is a connection 
+point for a channel or for an aggregation of channels.
+Includes a single channel
+Includes 2, 4 or 8 channels
+
+--- Page 25 ---
+University of Oviedo
+Computing Science Department
+SAS: Architecture (II)
+Computing Infrastructure
+25
+• Devices addressing
+– SAS Domain
+– Available device roles in a domain
+Initiator (Generally, a controller port)
+Target (Generally, a storage device)
+– Addressing Capacity (up to SAS-3)
+A set of devices managed by a port, either directly or via hubs.
+-Up to 8 devices without the use of hubs (x8 port)
+-Up to 128 devices on a single hub
+-Up to 128 x 128 devices using two hub levels
+
+--- Page 26 ---
+University of Oviedo
+Computing Science Department
+SAS: Interconnection topology example (I)
+Computing Infrastructure
+26
+Topology based on point to point connections
+- SAS topology used to  organize the internal storage in a server
+- Two SAS domains with 5 devices each (1 "initiator" and 4 "targets")
+
+--- Page 27 ---
+University of Oviedo
+Computing Science Department
+SAS: Interconnection topology example (II)
+Computing Infrastructure
+27
+Topology based on concentrators
+- SAS topology used to  organize the internal storage in a server
+- Two SAS domains with 5 devices each (1 "initiator" and 4 "targets")
+
+--- Page 28 ---
+University of Oviedo
+Computing Science Department
+SAS: Standard
+Computing Infrastructure
+28
+• SAS standard evolution
+• Bandwidth calculation (SAS-4)
+• Bandwidth of a SAS-4 x4 port
+• Comparison between  SCSI and SAS
+– Ultra-320 SCSI: 320 MB/s
+– SAS-4: 2400 MB/s
+Version
+Frequency (GHz)
+Encoding
+Bandwidth
+(MB/s)
+SAS-1
+3
+8/10
+300
+SAS-2
+6
+8/10
+600
+SAS-3
+12
+8/10
+1.200
+SAS-4
+22,5
+128/150
+2.400
+4 x 2400 = 9.600 MB/s
+s
+MB
+s
+bytes
+bits
+bytes
+ciclo
+bit
+s
+ciclos
+SAS
+AB
+2400
+10
+2400
+150
+16
+1
+10
+5,
+22
+)
+4
+(
+6
+9
+=
+×
+=
+×
+×
+×
+=
+−
+
+--- Page 29 ---
+University of Oviedo
+Computing Science Department
+SAS: Physical implementation (I)
+Computing Infrastructure
+29
+• Controller
+• Serial link
+Implemented both on motherboard and via HBA
+HBA SAS
+SAS Ports x4
+- It is implemented using a wire with 7 conductors. Only 4 of them are used to   
+transmit information.  
+- The implementation os SAS links is the same than SATA links.
+
+--- Page 30 ---
+University of Oviedo
+Computing Science Department
+SAS: Physical implementation (II)
+Computing Infrastructure
+30
+• SAS Backplane
+– Concept
+– Purpose
+– Use
+It is a printed circuit board that provides a set of SAS connectors
+Providing a connectivity infrastructure for hot-pluggable storage devices
+In the vast majority of mid-range and high-end servers, SAS storage devices are 
+connected via a SAS backplane.
+
+--- Page 31 ---
+University of Oviedo
+Computing Science Department
+SAS: Disk techonology with double port
+Computing Infrastructure
+31
+• Concept
+• Purpose
+Disk connector with double port
+Connection between a double port disk 
+and a topology with redundant SAS bus
+These are disks that have two SAS connection ports.
+Allow the connection of disks to redundant bus connection topologies. 
+
+--- Page 32 ---
+University of Oviedo
+Computing Science Department
+SAS: Compatibility with SATA
+Computing Infrastructure
+32
+• SAS bus supports SATA devices
+– Controller implications
+– Implications regarding connectors
+Comparison between SAS/SATA connectors
+2
+SAS controllers implement the SATA protocol in addition to SAS.
+SAS connectors must be compatible with SATA devices.
+
+--- Page 33 ---
+University of Oviedo
+Computing Science Department
+NVMe: General aspects
+Computing Infrastructure
+33
+• NVMe: Non-Volatile Memory Express
+• Concept
+• Standard NVMe implementation products
+• Redesign of driver models
+– Purpose
+– Redesign from scratch
+A logical device interface specification for accessing non-volatile memory devices 
+over the PCIe bus.
+Device drivers.
+Exploiting the features of non-volatile memory devices to their full potential
+They are designed for non-volatile memory devices only, freeing them from HDD disk management.
+
+--- Page 34 ---
+University of Oviedo
+Computing Science Department
+NVMe: General aspects
+Computing Infrastructure
+34
+• Operating system with native support for NVMe
+• Essential difference between  NVMe  and SAS /SATA
+• Scope of use
+SAS and SATA specify physical buses (based on serial links) in addition to a logical
+device interface. In contrast, NVMe specifies only a logical device interface, since
+the physical bus used by devices based on this specification is PCIe.
+All modern Windows (10 and server versions since 2012 R2) and all Linux
+distributions with kernel version 3.3 or higher.
+All types of systems, including desktops, workstations, laptops and servers.
+
+--- Page 35 ---
+University of Oviedo
+Computing Science Department
+NVMe improves in comparison with SAS and SATA
+Computing Infrastructure
+35
+• Handle multiple I/O command queue of greater depth
+– SATA Command queue
+– SAS Command queue
+– NVMe Command queue
+– Benefits
+• Rationalization and simplification of the I/O code (uses less than half the number 
+of instructions).
+– Benefits
+1, with depth of 32
+1, with depth of  256.
+Until 64 K, with depth of 64 K.
+Enable parallelism in accessing the storage device.
+It reduces the execution time of device access routines in the OS, reducing 
+latency of operations and increasing the productivity of operations.
+
+--- Page 36 ---
+University of Oviedo
+Computing Science Department
+PCIe bus
+Computing Infrastructure
+36
+• Main characteristics
+– Serial
+– Allows multiple serial lines to be implemented in a single connector
+• Nomenclature of serial lines
+       lanes
+• Most common implementations of the PCIe connector
+x1, x2, x4, x8, x16, x32
+• Evolution of the PCIe standard and its features
+Version
+Transfer speed
+Encoding
+Bandwidth per 
+lane
+1.0
+2,5 GT/s
+8/10
+250 MB/s
+2.0
+5 GT/s
+8/10
+500 MB/s
+3.0
+8 GT/s
+128/130
+985 MB/s
+4.0
+16 GT/s
+128/130
+1,97 GB/s
+5.0
+32 GT/s
+128/130
+3,94 GB/s
+6.0
+64 GT/s
+242/256
+7,88 GB/s
+
+--- Page 37 ---
+University of Oviedo
+Computing Science Department
+Form factors of NVMe devices
+and connection formats to the PCIe bus
+Computing Infrastructure
+37
+1
+2
+3
+1) Standard PCIe expansion card x4 or x8
+2) M.2 x2 or x4 card
+3) 2.5" SFF device x4
+Conector U.2
+PCIe 3.0 Bandwidth
+x2
+1.97 GB/s
+x4
+3.94 GB/s
+x8
+7.88 GB/s
+
+--- Page 38 ---
+University of Oviedo
+Computing Science Department
+Connector U.2 to backplane
+Computing Infrastructure
+38
+• Designed for hotplug connections of NVMe devices. 
+•  PCIe x4 connection
+• Compatible with  SAS and SATA
+Suppl
+y
+
+--- Page 39 ---
+University of Oviedo
+Computing Science Department
+Computing Infrastructure
+39
+ 
+ 
+ 
+Hard drive disk and Solid State Drive
+
+--- Page 40 ---
+University of Oviedo
+Computing Science Department
+Structure of a Hard driver disk (HDD)
+Computing Infrastructure
+40
+Information organization in a HDD
+On a hard disk, information is organized
+into surfaces, tracks and sectors.
+
+--- Page 41 ---
+University of Oviedo
+Computing Science Department
+Hard driver disk features
+Computing Infrastructure
+41
+• Capacity
+– Concept
+– Expression 
+• Consumption
+• Form factor
+– Concept
+– Types
+LFF (Large Form Factor): 
+SFF (Small Form Factor):  
+– Comparison LFF/SFF
+Lower footprint
+Higher capacity
+Lower consumption
+SFF
+LFF
+SFF
+Number of bytes stored by the disk
+- Usually expressed in GB or TB
+- 1GB = 109 Bytes / 1TB = 1012 Bytes
+Number of watts consumed during operation.
+Refers to the size of the disk
+3,5”
+2,5”
+
+--- Page 42 ---
+University of Oviedo
+Computing Science Department
+Hard disk features
+Computing Infrastructure
+42
+• Rotation speed
+• Cache
+• Interface
+• Number of data ports
+• Reliability
+– AFR (Annualized Failure Rate)
+– Typical values of AFR
+Normal values: 
+SATA models: 1
+SAS models:   2
+Normal values: 5.400, 7.200, 10.000 and 15.000 
+Memory that stores the most frequently accessed sectors in order to increase 
+performance. Size range: [16MB - 256MB].
+SATA or SAS
+Indicates the probability of failure during an uninterrupted year of operation.
+Around 0,5%
+
+--- Page 43 ---
+University of Oviedo
+Computing Science Department
+Hard driver disk features -  Performances
+Computing Infrastructure
+43
+• Performances phases
+– Phase 1: Head positioning speed
+   It is expressed by the average access time.
+Components in the average access time
+Average seek time
+Latency
+It is the average time that the heads need to move from one track to other track 
+which is randomly choosen.
+It is the average time required to access to a sector, once a head is positioned in 
+the track that contains that sector. It depends on the rotation disk speed.
+Average time used by the heads to position themselves in the sector required by 
+a read or write operation.
+
+--- Page 44 ---
+University of Oviedo
+Computing Science Department
+Hard driver disk features -  Performances
+Computing Infrastructure
+44
+• Performances phases
+– Phase 2: Transfer head/disk speed
+    It is expressed as sustained transfer rate.
+It indicates the number of bytes per unit time which can be moved between the 
+disk and the interface which controls it. 
+
+--- Page 45 ---
+University of Oviedo
+Computing Science Department
+Types of Disk access and relation to the performances
+Computing Infrastructure
+45
+• Random access
+– Concept
+– Example of use
+– Key factor in the random Access speed
+– IOPS concept
+Access to small and dispersed data blocks 
+Relational databases
+Average access time
+Number of random I/O operations per second. It is the inverse of the average 
+access time.
+
+--- Page 46 ---
+University of Oviedo
+Computing Science Department
+Types of Disk access and relation to the performances
+Computing Infrastructure
+46
+• Sequential access
+– Concept
+– Example of use
+– Key factor in the sequential access speed
+Access to large data blocks located contiguously on the disk.
+Video streaming
+Sustained transfer rate
+
+--- Page 47 ---
+University of Oviedo
+Computing Science Department
+Examples of enterprise-class drives
+DELL
+Computing Infrastructure
+47
+Gama SAS orientada a capacidad
+Interface
+SAS 12 Gb/s
+Form factor
+LFF
+Capacity (TB)
+4, 8, 12, 16, 20 and 24
+r.p.m.
+7.200
+Gama SATA
+Interface
+SATA 6 Gb/s
+Form factor
+LFF
+Capacity (TB)
+2, 4, 8, 12, 16, 20 and 24
+r.p.m.
+7.200
+
+--- Page 48 ---
+University of Oviedo
+Computing Science Department
+SSD Devices
+Computing Infrastructure
+48
+• SSD: Solid State Drive
+• Concept
+SATA interface
+Flash memory
+Example of SSD device with SATA interface
+It is a permanent storage device based on flash memory and connected to the 
+computer's connection system through a SATA, SAS or PCIe interface.
+
+--- Page 49 ---
+University of Oviedo
+Computing Science Department
+Form factors of SSD devices and
+their connection interfaces
+Computing Infrastructure
+49
+• 2,5” SFF
+– Connection interfaces
+SATA
+SAS
+PCIe x4 (Using U.2 connector )
+• M.2
+– Connection interfaces
+SATA
+PCIe x2 o x4
+• Standard PCIe expansion card
+– Connection interfaces
+PCIe x4 o x8
+
+--- Page 50 ---
+University of Oviedo
+Computing Science Department
+2242
+Form factors of SSD devices
+Computing Infrastructure
+50
+2,5” SFF
+Length (in mm)
+Width (in mm)
+M.2
+Expansion cards PCIe
+
+--- Page 51 ---
+University of Oviedo
+Computing Science Department
+Installation of M.2 devices
+Computing Infrastructure
+51
+Connector M.2
+Module M.2
+
+--- Page 52 ---
+University of Oviedo
+Computing Science Department
+SSD devices of business range (DELL)
+Computing Infrastructure
+52
+Interface
+Form factor
+Capacity
+SATA 6 Gb/s
+SFF
+480 GB; 960 GB; 1.92 TB and 3.84 TB 
+SAS 24 Gb/s
+SFF
+800 GB; 1.6 TB; 1.92 TB; 3.84 TB and 7.68 TB
+PCIe Gen 4 (U.2)
+SFF
+Different models between 800 GB and 15.36 TB
+
+--- Page 53 ---
+University of Oviedo
+Computing Science Department
+Comparison between SSD / HDD
+Computing Infrastructure
+53
+Features
+Comparative
+Maximum capacity
+Similar 
+Random access performance
+SSD much better
+Sequential access performance
+SSD better
+Reliability
+Similar
+Cost / GB
+SSD more expensive (x4, aproximatelly)
+
+--- Page 54 ---
+University of Oviedo
+Computing Science Department
+Computing Infrastructure
+54
+ 
+ 
+ 
+ 
+ 
+   RAID
+
+--- Page 55 ---
+University of Oviedo
+Computing Science Department
+Concept
+Computing Infrastructure
+55
+• RAID: Redundant Array of Independent Disks
+• Concept
+This is an added capability of some bus controllers, which allows physical disks to be managed 
+in groupings that make them work collaboratively, so that they are presented to the 
+operating system as if they were a single disk, usually referred to as a virtual disk.
+
+--- Page 56 ---
+University of Oviedo
+Computing Science Department
+General aspects
+Computing Infrastructure
+56
+• Objectives
+– Performances increase
+– Fault tolerant
+• RAID levels
+– Concept
+– More common RAID levels
+0, 1, 10, 5 and 6
+It is achieved using data striping (fragmentation). Data is fragmented among
+multiple physical units, thus enabling parallelism in information access, which
+increases performance.
+It is achieved using the redundancy in the information storage. The information is 
+redirected among the various disks in the RAID, so that the system can continue 
+to operate even if one of the physical disks in the RAID fails.
+They represent the different ways of distributing the information among the RAID disks.
+
+--- Page 57 ---
+University of Oviedo
+Computing Science Department
+Concept of strip
+Computing Infrastructure
+57
+-Definition: It is the unit of fragmentation of the information to be written in the RAID
+system.
+-Size: The mínimum value is 2 KB and the maximum 2 MB and the most common 64KB
+-Application: Fragmentation is applied at the file level
+
+--- Page 58 ---
+University of Oviedo
+Computing Science Department
+RAID 0: Striping
+Computing Infrastructure
+58
+-Operation: The data strips are stored in the disk following a sequential distribution
+-Redundancy: No
+-Performances in reading operations: NxP (where N is the number of disks and P the 
+performance of each disk)
+-Performances in writing operations: NxP
+
+--- Page 59 ---
+University of Oviedo
+Computing Science Department
+RAID 1: Mirroring
+Computing Infrastructure
+59
+-Operation: Strips are copied in all the disks of the RAID. This type of RAID is 
+configured with two disks
+Redundancy: Yes
+-Storage efficiency: 1/2 (50%)
+-Performances in reading operations: 2xP
+-Performances in writing operations: P
+
+--- Page 60 ---
+University of Oviedo
+Computing Science Department
+RAID 10: Mirroring
+Computing Infrastructure
+60
+-Operation: The disks are organised in couples which work as a mirror. Strips are 
+stored in disks couples following a sequential distribution.
+-Redundancy: Yes
+-Storage efficiency: 1/2 (50%)
+-Performances in reading operations: NxP
+-Performances in writing operations: (N/2)xP
+
+--- Page 61 ---
+University of Oviedo
+Computing Science Department
+RAID 5: Parity
+Computing Infrastructure
+61
+-Operation: 
+-Given a RAID of N disks, for each (N-1) strips of data to be written, a parity strip is
+generated.
+-The parity strip is calculated by performing the XOR operation on the corresponding
+data strips.
+-Data strips are distributed sequentially on the disks.
+-Parity strips are interleaved between the data strips so that they are evenly
+distributed among all disks. 
+-If a data strip is lost, (due to a disk failure), the information of that strip can be 
+calculated using the rest of data strips of the group and the parity strip. 
+-Redundancy: Yes
+-Storage efficiency: (N-1)/N 
+-Performances in reading operations: (N-1)xP 
+-Performances in writing operations: (N/4)xP
+
+--- Page 62 ---
+University of Oviedo
+Computing Science Department
+RAID 5: Parity
+Computing Infrastructure
+62
+
+--- Page 63 ---
+University of Oviedo
+Computing Science Department
+RAID 6: Double parity
+Computing Infrastructure
+63
+-Operation: 
+-Given a RAID formed by N disks, for each (N-2)  data strips to write, two parity strips 
+are generated.
+-The parity strips are calculated doing an XOR operation with the corresponding 
+strips.
+-The data strips are distributed sequently in the disks.
+-The parity strips are located in the middle of the data strips. They are uniformly 
+distributed between all the disks. 
+-The RAID is tolerant to the failure of two disks.
+-Redundancy: Yes
+-Storage efficiency: (N-2)/N
+-Performances in reading operations: (N-2)xP 
+-Performances in writing operations: (N/6)xP
+
+--- Page 64 ---
+University of Oviedo
+Computing Science Department
+RAID 6: Double parity
+Computing Infrastructure
+64
+
+--- Page 65 ---
+University of Oviedo
+Computing Science Department
+Writing cache
+Computing Infrastructure
+65
+• What  writing algorithm is used?
+• How does it work?
+• What happen if the supply energy in the server is interrumpted?
+• Used technology
+Flash-backed write cache (FBWC)
+Write-back
+All writings are made in cache. Data is moved to the disks at the most convenient 
+time so that the overall performance of the storage system is maximized.
+The cache is powered by a capacitor system for the time required to dump its 
+contents into flash memory. When the system restarts after power is restored, the 
+contents of the flash are dumped to the disks.
+
+--- Page 66 ---
+University of Oviedo
+Computing Science Department
+Type of cache depending on the type of RAID devices
+Computing Infrastructure
+66
+• RAID of HDD devices
+• RAID of SSD devices
+The cache is essential to obtain a reasonable perfomances, specially if there are 
+abundant write operations.
+The cache is not necessary.
+
+--- Page 67 ---
+University of Oviedo
+Computing Science Department
+Example of RAID controller
+HPE Smart Array P830
+Computing Infrastructure
+67
+SAS x8 Ports 
+FBWC 
+
+--- Page 68 ---
+University of Oviedo
+Computing Science Department
+HPE Smart Array P830
+Computing Infrastructure
+68
+Essential properties
+Motherboard interface
+PCIe
+Disk interface
+SAS 12 Gb/s
+Physical ports
+2 x 8
+RAID levels supported
+0, 1, 10, 5, 50, 6, 60, 10 ADM
+Cache
+4 GB
+
+
+
+============================================================
+UNIT: unit4.pdf
+============================================================
+
+--- Page 1 ---
+Unit 4
+Storage systems and networks
+
+--- Page 2 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Index
+2
+• Introduction: types of IT architecture
+• Storage systems
+• SAN (Storage Area Networks) implementation technologies
+• NAS (Network Attached Storage) Systems
+
+--- Page 3 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Server-centric IT architecture
+3
+1)
+The server is the structural element of this IT architecture.
+2)
+The storage devices are local to the servers and are therefore only accessible through the server to which they 
+are connected.
+3)
+In this IT architecture scheme, the storage devices are connected to the servers through a intern SAS or SATA 
+bus. 
+Key aspects of server-centric IT architecture
+Server 1
+Server 2
+Server 3
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Computer
+client
+Computer
+client
+Computer
+client
+Computer
+client
+Data 
+network
+
+--- Page 4 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Server-centric IT architecture issues
+4
+• Poor usage of available storage
+• Difficulty in allocating new storage to a server
+Free storage on one server cannot be allocated to another server
+It requires the purchase and installation of a new device, and the installation 
+may entail an extended server downtime.
+
+--- Page 5 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Storage-centric IT architecture
+5
+• Storage-centric IT architecture essentials
+– Availability of server-independent network 
+storage
+(although servers may keep their local storage devices)
+– Use of storage networks to connect servers to 
+networked storage devices
+– Networked storage becomes the core of the 
+organization's IT services.
+(Servers are used as mere information processing entities).
+Server 1
+Server 2
+Server 3
+Computer
+client
+Computer
+client
+Computer
+client
+Computer
+client
+Data 
+network
+Storage network
+Local storage to 
+servers
+Storage
+Networked
+Disk
+Disk
+
+--- Page 6 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Benefits of storage-centric IT architecture
+6
+• Full usage of available storage
+• Total flexibility in allocating storage to servers 
+In the context of virtualized workloads
+•
+Decoupling between VM storage and the servers on which they run
+Advantage: A VM stored in the network storage infrastructure can be executed, as 
+appropriate, on any server that has access to the network storage infrastructure. 
+This flexibility drastically simplifies IT infrastructure management.
+ 
+
+--- Page 7 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Index
+7
+• Introduction: types of IT architecture
+• Storage systems
+–Disk storage systems
+–Disk shelves
+–System stacks
+• SAN (Storage Area Networks) implementation technologies
+• NAS (Network Attached Storage) Systems
+
+--- Page 8 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Introduction
+8
+• Concept
+• Example
+NetApp Basic System
+A disk storage system is a computer equipment designed to contain hard disks 
+and SSD devices, providing management mechanisms for them, as well as 
+communication ports to access the storage space they generate.
+
+--- Page 9 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Basic system architecture
+9
+• Controller
+• Cache
+• Internal bus
+• Data ports
+• Administration port
+This is the device that manages the physical disks, 
+providing RAID functionality. The controller generates 
+virtual disks (volumes) from the physical ones and 
+presents them through the system ports.
+It is an intermediate storage memory, used to speed up 
+write and read operations performed on disks.
+Connection system between the controller and the
+physical
+disks.
+In
+current
+systems,
+this
+bus
+is
+implemented according to the SAS standard.
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Controller
+Cache
+Internal bus
+Data 
+Ports
+Administration 
+port
+These are the elements connecting the disk storage 
+system to the storage network. They will typically be 
+Ethenet, Fibre Channel or SAS.
+Element connecting the storage system to a 
+management console. It is of Ethernet type.
+
+--- Page 10 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Fault tolerant system architecture
+10
+1)
+All essential elements (controller, cache and internal bus) are redundant.
+2)
+The power supplies (not shown in the figure) are redundant.
+3)
+This architecture requires dual-ported disks, so they must be of SAS type.
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Controller 1
+Cache
+1
+Internal bus 1
+Data 
+`port
+Controller 2
+Cache
+2
+Administration 
+port
+Internal bus 2
+Administration 
+port
+
+--- Page 11 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Configuration: Groups (of disks)
+11
+Concept: Set of disks that works collaboratively in a supportive manner
+Configuration: Via a raid level (usually 0, 1, 10, 5 or 6)
+Disk requirements : They should be of the same type (HDD or SSD) and it is recommended that they are of the same 
+size.
+Controllers
+Cache
+Internal bus
+Data 
+ports
+Groups (of disks)
+Administration 
+ports
+
+--- Page 12 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Configuration: Volumes
+12
+Concept: Storage logical entity exported to the SAN by the storage system
+Implementation : By means of a geometrically identical partition on all disks of a cluster
+Address : By means of a LUN (Logical Unit Number), which is an integer number
+Controllers
+Cache
+Internal bus
+Data 
+ports
+LUN 0
+LUN 1
+LUN 2
+Volumes
+Administration 
+ports
+
+--- Page 13 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Configuration: Administration console
+13
+Concept: Graphical application running on a client computer that allows to manage any number of disk storage 
+systems.
+Console / storage systems connection mechanism: Administration network
+Protocol used by the management network: Normally HTTP or HTTPS
+Servers
+Storage network
+Administration 
+network
+Disk storage 
+systems
+Ports of 
+administration
+Data ports
+Computer
+client
+Administration 
+console
+
+--- Page 14 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Configuration: Example image of administration console
+14
+Example image of the SANtricity Storage Manager management console, used by NetAPP to configure part of its 
+storage systems catalog. 
+
+--- Page 15 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Use of disk storage systems: Basic questions
+15
+• Which entities are exported by these systems to the storage network?
+• Who uses the entities that these systems export to the storage network?
+Volumes
+Servers
+
+--- Page 16 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Use of disk storage systems: Visibility of volumes
+16
+• Concept
+• How is a volume exported by a disk storage system "seen" by a server? 
+LUN 0
+LUN 1
+LUN 2
+Storage network
+Server B
+Server A
+Disk storage system
+VISIBILITY
+Puerto de datos
+Internal Storage
+A
+B
+In principle, all volumes configured on a storage enclosure connected to a storage network are 
+visible (accessible) to all servers connected to the same network.
+As if it were an internal disk of the server itself
+Data port
+
+--- Page 17 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Use of disk storage systems: Volume linking
+17
+• Concept
+LUN 0
+LUN 1
+LUN 2
+Storage network
+Server B
+Server A
+Disk storage system
+LINKING
+LINKING
+A
+B
+Volume linking is the process of registering a volume by a server's operating system. Once 
+registered, the volume behaves like an internal disk of the server itself.
+
+--- Page 18 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Use of disk storage systems: Result of volume bonding.
+18
+LUN 0
+LUN 1
+LUN 2
+Storage
+available
+Server B
+Server A
+A
+B
+Storage
+available
+
+--- Page 19 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Typical features of disk storage systems
+19
+• Snapshots
+• Full copies
+• LUN masking (LUN masking)
+• Remote mirroring
+This is the ability to make read-only copies of volumes. They are made instantaneously, 
+regardless of the size of the source disk. Initially no data blocks are copied in the snapshot. 
+Data is only copied when it is modified on the original volume.
+This is to create a complete replica of one volume on another. These copies are read and 
+write.
+This is the ability to set the volumes (identified by their corresponding LUNs) that will be 
+visible to each server connected to the network. This facilitates server configuration tasks 
+and avoids unnecessary errors.
+This is the ability to keep one or several volumes of a storage cabinet permanently replicated in 
+another remote cabinet. Replication between each source and remote volume is automatically 
+coordinated by the storage cabinets.
+
+--- Page 20 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Remote replication
+20
+• Purpose of remote replication
+Replicate data generated on a volume by one or more services located at a primary site to another volume 
+located at a remote site, so that if a contingency occurs at the primary site, the services can start up and 
+continue to operate at the remote site, thanks to the replicated data, until the contingency at the primary 
+site is resolved.
+Storage network
+Disco
+Storage network
+Disco
+Automated 
+replication
+Primary Site
+Service
+Data volume 
+used by the 
+service
+Remote site
+Disk
+Disk
+
+--- Page 21 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+NetApp E-Series (2800) disk storage system examples
+21
+
+--- Page 22 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+E2812/E2824: Redundancy
+22
+Power supplies
+(redundant)
+Controllers (redundant)
+
+--- Page 23 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+E2800: Controller and Connectivity
+23
+1) Data ports (two): FC 16 Gb/s or Ethernet 10 Gb/s (Optical)
+2) Management ports (two): Ethernet 1 Gb/s (RJ-45)
+3) Diagnostics and support ports (three): Serial RJ-45, micro-usb, and usb
+4) Expansion ports (two): Mini-SAS 4x12 Gb/s
+Connection ports
+
+--- Page 24 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+NetApp E-Series (2800): Storage Capacities
+24
+E2812
+12 Disks / 2U
+E2824
+24 Disks / 2U
+E2860
+60 Disks / 4U
+SSD
+800 GB
+800 GB / 1,6 TB / 3,8 TB
+7,6 TB / 15,3 TB
+800 GB / 1,6 TB / 3,8 TB
+7,6 TB / 15,3 TB
+HDD high performance
+___
+1,2 TB / 1,8 TB
+10K - SFF
+1,2 TB / 1,8 TB
+10K - SFF
+HDD high capacity
+4 TB / 8 TB / 12 TB
+7,2K - LFF
+___
+4 TB / 8 TB / 12 TB
+7,2K - LFF
+Maximum 
+capacityWith HDD
+144 TB
+(using 12 TB disks)
+43,2 TB
+(using 1,8 TB disks)
+720 TB
+(using 10 TB disks)
+
+--- Page 25 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Index
+25
+• Introduction: types of IT architecture
+• Storage systems
+– Disk storage systems
+– Disk shelves
+– System stacks 
+• SAN (Storage Area Networks) implementation technologies
+• NAS (Network Attached Storage) Systems
+
+--- Page 26 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Introduction
+26
+• Concept
+• Types
+– Basic
+– Fault tolerant
+• Objectives
+A single expander.
+Two expanders and the rest of its components (power supplies, buses, etc.) 
+redundant. 
+It is a disk enclosure managed by one or two SAS expanders.
+Provide an expansion system for storage arrays (systems with controller), so that 
+the number of disks managed by a controller can be increased significantly.
+
+--- Page 27 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Fault-tolerant disk array architecture
+27
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+Disk
+SAS 
+Expanders 
+1
+Internal bus 1
+SAS 
+ports
+SAS 
+Expanders 
+2
+Internal bus 2
+
+--- Page 28 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Disk system / disk tray differences
+28
+Disk system
+Disk tray
+Controller
+Yes
+No
+SAN connection ports
+(FC, Ethernet 10G)
+Yes
+No
+Management ports
+Management console support
+Yes
+No
+Conclusion
+A disk tray cannot operate on its own: it always works subordinate to a cabin with a 
+controller.
+
+--- Page 29 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Examples of disk shelves
+Shelves for the NetApp E-Series (2800)
+29
+DE212C
+DE224C
+DE460C
+Form factor
+2U
+2U
+4U
+Nº of disks
+12
+24
+60
+Form factor disks
+LFF
+SFF
+SFF o LFF
+Maximum capacity(with HDD)
+144 TB
+(using 12 TB disks)
+43,2 TB
+(using 1,8 TB disks)
+600 TB
+(using 12 TB disks)
+I/O modules
+IOM12
+IOM12
+IOM12
+
+--- Page 30 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Tray DE460C
+30
+Rear view
+Power supplies 
+(redundant)
+IOM12 I/O modules(redundant)
+
+--- Page 31 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+IOM12 I/O module 
+31
+Mini-SAS ports
+Width : x4 (4 channels)
+Standard : SAS-3
+Single channel bandwidth :  1200 MB/s
+Total bandwidth : 1200 x 4 = 4800MB/s
+Mini-SAS port features
+
+--- Page 32 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Index
+32
+• Introduction: types of IT architecture
+• Storage systems
+– Disk storage systems
+– Disk shelves
+– System stacks
+• SAN (Storage Area Networks) implementation technologies
+• NAS (Network Attached Storage) Systems
+
+--- Page 33 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Introduction
+33
+• Concept
+• Objectives
+A system consisting of a controller and one or more disk platters interconnected via 
+a single or multiple SAS bus.
+Implement scalable storage infrastructures in terms of capacity, enabling 
+extraordinarily high storage capacities to be achieved.
+
+--- Page 34 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+NetApp E-Series (2800): Stacking Capabilities
+34
+Disk storage system(with controller)
+E2812
+12 disks / 2U
+E2824
+24 disks / 2U
+E2860
+60 disks / 4U
+Disk tray
+DE212C
+12 disks / 2U
+DE224C
+24 disks / 2U
+DE460C
+60 disks / 4U
+Maximum number of trays
+3
+3
+2
+Maximum number of devices (HDD/SDD)
+48/48
+96/96
+180/120
+
+--- Page 35 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Example of system stack wiring 
+(multipath configuration)
+35
+Routes by driver : 2
+Implementation of the routes:
+The expanders are organized in two 
+groups, left group (1, 2 and 3) and right 
+group (4, 5 and 6). Each route is 
+implemented starting from a port of a 
+controller and using the expanders of a 
+group, which are connected in cascade.
+Bandwidth Aggregation: Yes, both 
+routes manage traffic simultaneously.
+Fault tolerance: Yes, although one 
+route fails, communications can be 
+stablished through the other route
+Disk system
+(with controller)
+Controllers
+SAS Expanders
+Disk tray
+Disk tray
+Disk tray
+SAS x4 wire
+1
+2
+3
+4
+5
+6
+A
+B
+
+--- Page 36 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Index
+36
+• Introduction: types of IT architecture
+• Storage systems
+• SAN (Storage Area Networks) implementation technologies
+– Fiber channel
+– iSCSI
+• NAS (Network Attached Storage) Systems
+
+--- Page 37 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Introduction
+37
+• Overview
+• Scope of use
+• Support
+FCIA: Fibre Channel Industry Association
+It is a bidirectonal serial Communication technology that uses as transmission 
+phyiscal médium fibre channel
+Storage networks
+
+--- Page 38 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Layer model
+38
+FC0
+(Physical medium: wires, connectors, signals, etc.)
+FC1
+(Transmission protocol: encryption/decryption) 
+FC2
+(Communication protocol: frames, sequences, etc. ) 
+FC3
+(Services: empty layer in industrial implementations ) 
+Transmission technology
+technology
+FC4
+(Mapping of higher level protocols: SCSI, IP, etc.) 
+SCSI
+IP
+Higher level protocols
+Interface Layer
+
+--- Page 39 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+FCP (Fiber Channel Protocol)
+39
+• Concept
+• FCP vs. parallel SCSI and serial SCSI
+Operating Systems
+Parallel SCSI
+Parallel SCSI bus
+Operating Systems
+SCSI serie
+SAS bus
+Operating Systems
+FCP
+Red fiber channel
+API SCSI
+API SCSI
+API SCSI
+Interface
+Interface
+OS
+OS
+Communication 
+protocol
+Communication 
+protocol
+Transmission 
+medium
+Transmission 
+medium
+Disk
+Disk
+Disk
+Storage device
+Storage device
+It is the protocol from FC4 layer, that maps the SCSI protocol over the PC communication 
+infrastructure
+
+--- Page 40 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Ports and links
+40
+• Ports
+They are the connection elements of the FC 
+devices. They are always bidirectional, 
+providing one input and one output channel.
+• Links
+These are connections between two ports.
+FC Device
+Input channel
+Output channel
+Port
+Link
+FC Device
+FC Device
+
+--- Page 41 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Structure of an FC network
+41
+• Structure of an FC network
+• Concept of Fibre Channel or Fibre Channel fabric
+Switch FC
+Servers
+Minimum FC network, 
+consisting of a single switch
+It is based on the use of FC switches for the interconnection of FC devices. FC switches can be interconnected 
+to each other to form complex interconnection topologies.
+Set of FC switches and wires that form a FC network
+
+--- Page 42 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+HF infrastructures: network
+42
+• Switches
+• Wires and connectors
+– Wire types
+– Typical connector model
+• Transceivers
+– Concept
+– Types
+They are used to build the FC connection mesh. They 
+are available with all kinds of features and number of 
+ports.
+SFP: small form-factor pluggable
+SFP+: enhanced small form-factor pluggable
+Brocade 6510 – 48 ports
+Optic fibre
+LC connector
+SFP
+Optic fibre
+LC
+It is a device that converts the electrical signals 
+handled at the FC switch port into light signals that 
+are sent through the wires
+
+--- Page 43 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+HF infrastructures: systems
+43
+They allow servers to be connected to FC switches. 
+Currently, they are built for the PCI-E bus.
+• Disk storage systems
+• HBA
+The figure shows a system with dual controller and 4 FC 
+ports per controller.
+FC ports
+
+--- Page 44 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Addressing in FC networks
+44
+• FC ports roles
+– Initiator
+✓Mission
+✓Location
+– Target
+✓Mission
+✓Location
+• FC port identification
+• LUN
+1)
+They are identified by 64-bit numbers (e.g., 20-00-00-81-23-45-AC-01).
+2)
+The identifier of each port is globally unique (like the MACs of Ethernet cards).
+3)     Globally unique Ids are called WWN (World Wide Name)
+Initiate the Communication Process with a target and governs the processs of addressing the target
+HBA of a server
+Deal with Access requests from the initiator
+In a disk storage system, data ports work as targets.
+A numeric ID used to address each volumen within a target
+
+--- Page 45 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Addressing in FC networks
+45
+A server uses a two-level address 
+to access a volume. The first level 
+is the WWN identifier of the target 
+storage system on which the 
+volume is located, and the second 
+level is the LUN identifier of the 
+volume.
+• Objectives
+• Two-level addressing scheme
+WWNA
+Mesh
+(Fabric)
+HBA
+HBA
+LUN 0
+LUN 1
+LUN 2
+LUN 0
+LUN 1
+WWNB
+WWNX
+WWNY
+Targets
+Initiators
+SO
+DIR: WWNX / LUN 2
+DIR: WWNY / LUN 1
+Connecting the servers to 
+the volumes configured on 
+the storage systems
+
+--- Page 46 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Evolución del estándar FC
+46
+• Types of information coding
+– 8/10
+– 64/66
+– FEC (Forward Error Correction)
+Name
+Bandwidth
+(MBps)
+Transmission 
+frequency (Gbps)
+Market 
+availability
+1GFC
+200
+1,0625
+1997
+2GFC
+400
+2,125
+2001
+4GFC
+800
+4,25
+2005
+8GFC
+1600
+8,5
+2008
+16GFC
+3200
+14,025
+2011
+32GFC
+6400
+28,05
+2016
+64GFC
+12800
+28.9 PAM4
+2020
+In the evolutions 1GFC, 2GFC, 4GFC and 8GFC
+In the evolution 16GFC and 32GFC
+In the 64GFC evolution
+
+--- Page 47 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Index
+47
+• Introduction: types of IT architecture
+• Storage systems
+• SAN (Storage Area Networks) implementation technologies
+– Fiber Channel
+– iSCSI
+• NAS (Network Attached Storage) Systems
+
+--- Page 48 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Introduction
+48
+• Overview
+• Scope of use
+The basic idea of iSCSI technology is the transmission of the SCSI protocol over the 
+TCP/IP protocol and, consequently, over Ethernet-like physical network infrastructure
+Storage networks.
+
+--- Page 49 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Layer model
+49
+Ethernet
+TCP/IP 
+iSCSI 
+Underlying transmission 
+technology
+SCSI
+Higher level protocol
+Interface Layer
+
+--- Page 50 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Infrastructures for iSCSI networks
+50
+• Network infrastructure
+• Systems
+– Network interfaces
+– Disk storage systems
+To connect the servers to the network infrastructure. As standard, each server provides at least two 
+network interfaces.
+The figure shows a system with dual controller and 4 Ethernet ports per controller.
+10 base-T Ethernet ports
+Ethernet wires and switches
+
+--- Page 51 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+iSCSI in front of FC
+51
+• Advantages
+– Same communication technology as that used in data networks
+– More personnel trained in IP networks
+– Availability of more network management tools
+– Lower cost
+• Disadvantages
+– Significantly higher CPU utilization for traffic management
+– TCP/IP protocol generates a significant traffic overhead
+– Ethernet switch latency is high
+• Conclusions
+– Critical or large installations -> FC
+– Small and medium installations -> iSCSI
+
+--- Page 52 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Index
+52
+• Introduction: types of IT architecture
+• Storage systems
+• SAN (Storage Area Networks) implementation technologies
+• NAS (Network Attached Storage) Systems
+
+--- Page 53 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Network file systems
+53
+• Concept
+• Components
+– Network file server
+– Network file client
+• Protocols
+– SMB (Server Message Block)
+– NFS (Network File System)
+• File server: concept
+Standard on Windows platforms
+Standard on Unix/Linux platforms
+This involves a server exporting its local file system over a data network, so that the 
+file system is accessible to other client computers connected to the network.
+A software component that connects a server's local file system to the network.
+A software component that allows a client computer to connect to a network file system.
+It is a server that provides network file system functionality.
+
+--- Page 54 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+Network file system
+54
+Server
+Disk
+Computer
+client
+Computer
+client
+Data
+Network
+SAS/SATA
+Local
+file system
+File server
+network
+File client
+network
+File client
+network
+SMB/NFS
+SMB/NFS
+Network file 
+system
+
+--- Page 55 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+NAS (Network Attached Storage) Systems
+55
+• Concept
+• NAS vs. general purpose server
+– Operating system optimized for file serving
+– Fully preconfigured, therefore, minimal administration and maintenance
+– Availability of high-capacity, high-performance systems
+• Dual Functionality NAS / Disk Storage System
+These are servers specifically designed and configured to provide file server 
+functionality.
+Storage arrays equipped with Ethernet ports, in addition to providing the 
+functionality to export volumes to a SAN, can also function as NAS devices.
+
+--- Page 56 ---
+UNIVERSITY OF OVIEDO
+Computer Science Department
+Computing Infrastructure
+NAS System / Disk Storage System Comparison
+56
+Information elements served by a NAS system to 
+client computers:  Files       
+Data elements served by a disk storage 
+system to client servers:
+Low-level disk blocks
+SAN
+Volume
+Disk Driver
+File 
+Manager
+Application
+SERVER
+STORAGE SYSTEM
+B
+Block
+B
+Application
+Server
+SMB
+Client
+SMB
+Disk
+Disk Drive
+File 
+Manager
+SERVER
+(NAS)
+CLIENT
+DATA 
+NETWORK
+F
+F
+File
+
