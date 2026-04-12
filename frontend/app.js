@@ -145,7 +145,7 @@ function addMessage(role, content, isLoading) {
     div.className = "message " + role;
     var avatar = document.createElement("div");
     avatar.className = "avatar";
-    avatar.textContent = role === "user" ? "You" : "\uD83E\uDD16";
+    avatar.textContent = role === "user" ? "U" : "\uD83E\uDD16";
     var bubble = document.createElement("div");
     bubble.className = "bubble" + (isLoading ? " loading" : "");
     if (isLoading) {

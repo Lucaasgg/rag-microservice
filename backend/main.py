@@ -1,11 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from google import genai
-from fastapi.responses import Response
 import os
 
 load_dotenv()
@@ -35,15 +32,6 @@ def load_knowledge() -> str:
 KNOWLEDGE = load_knowledge()
 print(f"Knowledge base loaded: {len(KNOWLEDGE)} characters")
 
-# Serve frontend files
-FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "..", "frontend")
-app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
-
-
-@app.get("/")
-def root():
-    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
-
 class Question(BaseModel):
     message: str
     history: list[dict] = []
@@ -67,7 +55,7 @@ def ask(question: Question):
 STRICT RULES - YOU MUST FOLLOW THESE WITHOUT EXCEPTION:
 1. You ONLY answer questions based on the lecture notes provided below.
 2. If the user greets you (hello, hi, hey...), respond in a friendly way introducing yourself and asking what they need help with today regarding the course.
-3. If the question is not covered in the notes, respond in a friendly and encouraging way, telling the user that you can only help with Computing Infrastructure course content, and suggest they ask something related to the units covered (virtualization, storage technologies, storage systems and networks)."
+3. If the question is not covered in the notes, respond in a friendly and encouraging way, telling the user that you can only help with Computing Infrastructure course content, and suggest they ask something related to the units covered (virtualization, storage technologies, storage systems and networks).
 4. You MUST NOT use any external knowledge, training data, or information outside the provided notes.
 5. You MUST NOT answer questions about general topics, current events, people, places, or anything unrelated to the subject.
 6. Do NOT make up or infer information that is not explicitly in the notes.
